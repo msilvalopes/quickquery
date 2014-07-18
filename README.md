@@ -35,7 +35,7 @@ This example is a join:
 ```php
 <?php
   $data = qq('table_name,table_two,table_last#1');
-  // query: "SELECT
+  /* query: "SELECT
     table_name.field1 as table_name__field1,
     table_name.field2 as table_name__field2,
     table_name.field3 as table_name__field3,
@@ -50,6 +50,7 @@ This example is a join:
     LEFT JOIN table_last ON table_name.field2 = table_last.field1
     WHERE table_name.id = 1
     LIMIT 1;"
+  */
   print_r($data);
   /* output:
   array(
@@ -82,7 +83,7 @@ Sintax
 The basic sintax is:
 
 `table_name{@field1,field2,field3,...,_count}[field1=1],table2{field1,field2,field3,...}[field1=1|field2=$qq]`
-
+The `#` is for retrive a unique element from primary key of first table.
 The fields in `{...}` is the fields in `SELECT (...)`
 The fields in `[...]` is the fields in `WHERE (...)`
 If you use `@` before the first field, you say to use `GROUP BY (...)` is used fields in `SELECT (...)`, minus the agrupators consts
@@ -94,7 +95,6 @@ If you use `@` before the first field, you say to use `GROUP BY (...)` is used f
  * `_avg` like a SQL `AVG`, you can use `_avg:field4`
  * The complex fields you need to store the params in Model
 
-The `#` is for retrive a unique element from primary key of first table.
 
 # Params:
 
